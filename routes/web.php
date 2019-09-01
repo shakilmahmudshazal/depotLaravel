@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('users.signup');
+})->name('home');
+
+Route::post('/createUser','UserController@createUser');
