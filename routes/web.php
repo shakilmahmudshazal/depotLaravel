@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('users.signup');
+    return view('advisors.signup');
 })->name('home');
 
-Route::post('/createUser','UserController@createUser');
+Route::post('/createAdvisor','AdvisorController@createAdvisor');

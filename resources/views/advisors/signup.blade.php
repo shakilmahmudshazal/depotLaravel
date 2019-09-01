@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-sm-8">
         
-<form method="post" action="/createUser">
+<form method="post" action="/createAdvisor">
       {{csrf_field()}}
 <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -22,6 +22,7 @@
     <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
   </div>
   <button type="submit" class="btn btn-primary">Sign Up</button>
+  @include('layouts.error')
 </form>
     </div>
 

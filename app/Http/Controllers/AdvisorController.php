@@ -4,29 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
-class UserController extends Controller
+class AdvisorController extends Controller
 {
     //
 
 
 
-    public function createUser( Request $request)
+    public function createAdvisor( Request $request)
     {
     	$validaterData=$request->validate([
           'email'=>'required',
-          'password'=>'required|confirmed'
+          'password' => 'required|min:6|confirmed'
          
     	]);
 
-    	$user= new user;
+    	$advisor= new advisor;
 
          
-         $user->email=request('email');
-         $user->password=bcrypt(request('password'));
-         if(!$user::where('email',request('email'))->count())
+         $advisor->email=request('email');
+         $advisor->password=bcrypt(request('password'));
+         if(!$advisor::where('email',request('email'))->count())
          {
-         	$user->save();
-         	return view('users.userInfo');
+         	$advisor
+         	->save();
+         	return view('advisor.advisorInfo');
          }
          else{
          	return redirect('/');
